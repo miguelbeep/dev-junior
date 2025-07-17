@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaStyle - Loja Premium de Roupas</title>
+    <style>
+        /* ========== VARIÁVEIS ========== */
+        :root {
+            --cor-principal: #E63946;       /* Vermelho premium */
+            --cor-secundaria: #1D3557;     /* Azul marinho */
+            --cor-destaque: #FF9A47;      /* Laranja destaque */
+            --cor-fundo: #F8F9FA;         /* Fundo claro */
+            --cor-card: #FFFFFF;          /* Branco puro */
+            --cor-texto: #2F4858;        /* Texto escuro */
+            --cor-sucesso: #4CAF50;     /* Verde sucesso */
+            --cor-texto-claro: #6C757D; /* Texto secundário */
+            --cor-tamanho: #A8DADC;    /* Azul tamanhos */
+            --cor-link: #457B9D;      /* Azul links */
+        }
+
+        /* ========== ESTILOS GERAIS ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--cor-link);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--cor-principal);
+        }
+
+        /* ========== CABEÇALHO PROFISSIONAL ========== */
+        header {
+            background-color: var(--cor-card);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo h1 {
+            color: var(--cor-secundaria);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--cor-principal);
+        }
+
+        /* ========== MENU DE NAVEGAÇÃO ========== */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--cor-texto);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--cor-principal);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* ========== ÍCONES DO CABEÇALHO ========== */
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+        }
+
+        .header-icons a {
+            color: var(--cor-texto);
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--cor-principal);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ========== ÁREA DE LOGIN ========== */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: var(--cor-secundaria);
+            text-align: center;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--cor-principal);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #d13751;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 0 120px;
+            margin-top: 70px;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* ========== BOTÕES ========== */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--cor-principal);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d13751;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* ========== CARD DE PRODUTO ========== */
+        .product-card {
+            background-color: var(--cor-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Efeito de troca de imagem */
+        .product-image-container {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .product-image-secondary {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .product-card:hover .product-image-secondary {
+            opacity: 1;
+        }
+
+        /* Badges */
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .badge-new {
+            background-color: var(--cor-principal);
+            color: white;
+        }
+
+        .badge-sale {
+            background-color: var(--cor-destaque);
+            color: var(--cor-texto);
+        }
+
+        /* Seletor de tamanhos */
+        .size-selector {
+            display: none;
+            gap: 8px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .product-card:hover .size-selector {
+            display: flex;
+        }
+
+        .size-option {
+            min-width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--cor-tamanho);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            padding: 0 5px;
+        }
+
+        .size-option:hover {
+            background-color: var(--cor-principal);
+            color: white;
+        }
+
+        .size-option.selected {
+            background-color: var(--cor-principal);
+            color: white;
+        }
+
+        /* Info do produto */
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .product-info p {
+            color: var(--cor-texto-claro);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .price-container {
+            margin: 15px 0;
+        }
+
+        .current-price {
+            font-weight: bold;
+            color: var(--cor-principal);
+            font-size: 1.2rem;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--cor-texto-claro);
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* ========== SEÇÃO DE PRODUTOS ========== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: var(--cor-secundaria);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--cor-principal);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* ========== RODAPÉ PROFISSIONAL ========== */
+        footer {
+            background-color: var(--cor-secundaria);
+            color: white;
+            padding: 70px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--cor-principal);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.8);
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--cor-principal);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 25px 0;
+            background-color: rgba(0,0,0,0.2);
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ========== BOTÃO WHATSAPP ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 992px) {
+            .main-nav {
+                gap: 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 150px 0 100px;
+            }
+            
+            .hero h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .hero {
+                padding: 120px 0 80px;
+                margin-top: 60px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .size-selector {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ========== CABEÇALHO ========== -->
+    <header>
+        <div class="logo">
+            <img src="pgnLOGO.png  " alt="">
+            <h1>Moda<span>Style</span></h1>
+        </div>
+        
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#feminino" class="nav-link">Feminino</a></li>
+                <li><a href="#masculino" class="nav-link">Masculino</a></li>
+                <li><a href="#colecoes" class="nav-link">Coleções</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+            </ul>
+            
+            <div class="header-icons">
+                <a href="#" id="search-btn"><i class="fas fa-search"></i></a>
+                <a href="#" id="user-btn"><i class="fas fa-user"></i></a>
+                <a href="#" id="wishlist-btn"><i class="fas fa-heart"></i></a>
+                <a href="#" id="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            
+            <div class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== OVERLAY DE LOGIN ========== -->
+    <div class="login-overlay" id="login-overlay">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <input type="email" placeholder="E-mail" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Senha" required>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+                <p style="text-align: center; margin-top: 15px;">Não tem conta? <a href="#" id="register-link">Cadastre-se</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== PÁGINA INICIAL ========== -->
+    <section id="home" class="page">
+        <div class="hero">
+            <div class="container">
+                <h2>Coleção Outono/Inverno 2023</h2>
+                <p>As melhores tendências da estação com até 40% de desconto</p>
+                <div class="cta-buttons">
+                    <a href="#feminino" class="btn btn-primary">Ver Feminino</a>
+                    <a href="#masculino" class="btn btn-outline">Ver Masculino</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title">Lançamentos</h2>
+            <div class="products-grid" id="featured-products">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title">Mais Vendidos</h2>
+            <div class="products-grid" id="best-sellers">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PÁGINA FEMININO ========== -->
+    <section id="feminino" class="page">
+        <div class="container">
+            <h1 class="section-title">Moda Feminina</h1>
+            <div class="products-grid" id="feminino-grid">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PÁGINA MASCULINO ========== -->
+    <section id="masculino" class="page">
+        <div class="container">
+            <h1 class="section-title">Moda Masculina</h1>
+            <div class="products-grid" id="masculino-grid">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== RODAPÉ ========== -->
+    <footer id="sobre">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>ModaStyle</h3>
+                    <p>Sua loja de moda premium com as melhores marcas e tendências.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#feminino">Feminino</a></li>
+                        <li><a href="#masculino">Masculino</a></li>
+                        <li><a href="#colecoes">Coleções</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Ajuda</h3>
+                    <ul>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Serviço</a></li>
+                        <li><a href="#">Formas de Pagamento</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Moda, 123 - Maputo</li>
+                        <li><i class="fas fa-phone"></i> +258 834932941 </li>
+                        <li><i class="fas fa-envelope"></i> contato@modastyle.co.mz</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ModaStyle. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== BOTÃO WHATSAPP ========== -->
+    <a href="#" class="whatsapp-float" id="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // ========== DADOS DOS PRODUTOS ==========
+        let produtos = JSON.parse(localStorage.getItem('produtos')) || [
+            {
+                id: 1,
+                categoria: "feminino",
+                nome: "Vestido Floral Midi",
+                preco: 850.00,
+                imagem: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                imagemSecundaria: "https://images.unsplash.com/photo-1585487000128-9c17d3ab1b68?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                descricao: "Vestido floral com corte midi e tecido leve",
+                tamanhos: ["P", "M", "G", "GG"],
+                cores: ["Vermelho", "Preto", "Branco"],
+                novo: true,
+                bestSeller: true
+            },
+            {
+                id: 2,
+                categoria: "feminino",
+                nome: "Blazer Slim Fit",
+                preco: 1200.00,
+                imagem: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                imagemSecundaria: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                descricao: "Blazer elegante para ocasiões especiais",
+                tamanhos: ["P", "M", "G"],
+                cores: ["Preto", "Cinza", "Azul Marinho"],
+                promocao: true,
+                precoOriginal: 1500.00,
+                bestSeller: true
+            },
+            {
+                id: 3,
+                categoria: "masculino",
+                nome: "Camisa Social Slim",
+                preco: 450.00,
+                imagem: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                imagemSecundaria: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                descricao: "Camisa social para o dia a dia",
+                tamanhos: ["P", "M", "G", "GG"],
+                cores: ["Branco", "Azul", "Rosa"],
+                novo: true,
+                bestSeller: true
+            },
+            {
+                id: 4,
+                categoria: "masculino",
+                nome: "Calça Jeans Skinny",
+                preco: 600.00,
+                imagem: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                imagemSecundaria: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                descricao: "Calça jeans modelo skinny",
+                tamanhos: ["38", "40", "42", "44"],
+                cores: ["Azul Claro", "Azul Escuro", "Preto"],
+                promocao: true,
+                precoOriginal: 750.00,
+                bestSeller: true
+            },
+            {
+                id: 5,
+                categoria: "feminino",
+                nome: "Saia Midi Plissada",
+                preco: 550.00,
+                imagem: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                imagemSecundaria: "https://images.unsplash.com/photo-1595341577359-329256ab5a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                descricao: "Saia midi plissada com tecido fluido",
+                tamanhos: ["P", "M", "G"],
+                cores: ["Preto", "Bordô", "Verde Militar"],
+                novo: true
+            },
+            {
+                id: 6,
+                categoria: "masculino",
+                nome: "Tênis Casual",
+                preco: 800.00,
+                imagem: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                imagemSecundaria: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                descricao: "Tênis casual para o dia a dia",
+                tamanhos: ["38", "39", "40", "41", "42"],
+                cores: ["Branco", "Preto", "Cinza"],
+                promocao: true,
+                precoOriginal: 950.00
+            }
+
+
+
+
+ {
+                id: 7,
+                categoria: "masculino",
+                nome: "Tênis Casual",
+                preco: 800.00,
+                imagem: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                imagemSecundaria: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                descricao: "Tênis casual para o dia a dia",
+                tamanhos: ["38", "39", "40", "41", "42"],
+                cores: ["Branco", "Preto", "Cinza"],
+                promocao: true,
+                precoOriginal: 1500.00
+            }
+
+
+
+
+        ];
+
+        // ========== FUNÇÕES PRINCIPAIS ==========
+        function salvarProdutos() {
+            localStorage.setItem('produtos', JSON.stringify(produtos));
+        }
+
+        function configurarNavegacao() {
+            // Carregar conteúdo inicial
+            carregarDestaques();
+            carregarMaisVendidos();
+            carregarProdutos('feminino');
+            carregarProdutos('masculino');
+            
+            // Configurar scroll suave para os links âncora
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove a classe active de todos os links
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    // Adiciona a classe active ao link clicado
+                    this.classList.add('active');
+                    
+                    // Obtém o ID da seção alvo
+                    const targetId = this.getAttribute('href');
+                    
+                    // Verifica se o link é para uma seção existente
+                    if(targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if(targetElement) {
+                            // Calcula a posição da seção considerando o cabeçalho fixo
+                            const headerHeight = document.querySelector('header').offsetHeight;
+                            const targetPosition = targetElement.offsetTop - headerHeight;
+                            
+                            // Rola suavemente até a seção
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Configurar botão do WhatsApp
+            document.querySelector('.whatsapp-float').addEventListener('click', (e) => {
+                e.preventDefault();
+                const numero = '258857047504';
+                const mensagem = "Olá! Gostaria de informações sobre os produtos ModaStyle";
+                window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, '_blank');
+            });
+            
+            // Configurar botão de login
+            document.getElementById('user-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('login-overlay').style.display = 'flex';
+            });
+            
+            // Fechar login overlay
+            document.getElementById('login-overlay').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('login-overlay')) {
+                    document.getElementById('login-overlay').style.display = 'none';
+                }
+            });
+            
+            // Formulário de login
+            document.querySelector('.login-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Login realizado com sucesso!');
+                document.getElementById('login-overlay').style.display = 'none';
+            });
+            
+            // Atualizar link ativo conforme rolagem
+            window.addEventListener('scroll', atualizarLinkAtivo);
+        }
+
+        function atualizarLinkAtivo() {
+            // Obtém todas as seções da página
+            const sections = document.querySelectorAll('section, footer');
+            
+            // Obtém a posição atual de rolagem
+            const scrollPosition = window.scrollY + document.querySelector('header').offsetHeight;
+            
+            // Itera sobre as seções para verificar qual está visível
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    const id = section.getAttribute('id');
+                    const correspondingLink = document.querySelector(`.nav-link[href="#${id}"]`);
+                    
+                    if (correspondingLink) {
+                        // Remove a classe active de todos os links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        
+                        // Adiciona a classe active ao link correspondente
+                        correspondingLink.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        function carregarDestaques() {
+            const grid = document.getElementById('featured-products');
+            grid.innerHTML = '';
+            
+            // Pegar produtos marcados como novos
+            const lancamentos = produtos.filter(p => p.novo).slice(0, 4);
+            
+            lancamentos.forEach(produto => {
+                grid.appendChild(criarCardProduto(produto));
+            });
+        }
+
+        function carregarMaisVendidos() {
+            const grid = document.getElementById('best-sellers');
+            grid.innerHTML = '';
+            
+            // Pegar produtos marcados como bestSeller
+            const maisVendidos = produtos.filter(p => p.bestSeller).slice(0, 4);
+            
+            maisVendidos.forEach(produto => {
+                grid.appendChild(criarCardProduto(produto));
+            });
+        }
+
+        function carregarProdutos(categoria) {
+            const grid = document.getElementById(`${categoria}-grid`);
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            
+            const produtosFiltrados = produtos.filter(p => p.categoria === categoria);
+            
+            if (produtosFiltrados.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; grid-column: 1/-1;">Nenhum produto encontrado.</p>';
+                return;
+            }
+            
+            produtosFiltrados.forEach(produto => {
+                grid.appendChild(criarCardProduto(produto));
+            });
+        }
+
+        function criarCardProduto(produto) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            
+            // Badges
+            let badges = '';
+            if (produto.novo) {
+                badges += `<span class="product-badge badge-new">Novo</span>`;
+            }
+            if (produto.promocao) {
+                badges += `<span class="product-badge badge-sale">Promoção</span>`;
+            }
+            
+            // Preço
+            let precoHTML = `<div class="current-price">${produto.preco.toFixed(2)} MT</div>`;
+            
+            if (produto.promocao) {
+                precoHTML = `
+                    <div class="price-container">
+                        <span class="current-price">${produto.preco.toFixed(2)} MT</span>
+                        <span class="original-price">${produto.precoOriginal.toFixed(2)} MT</span>
+                    </div>
+                `;
+            }
+            
+            // Tamanhos
+            let tamanhosHTML = '';
+            if (produto.tamanhos && produto.tamanhos.length > 0) {
+                tamanhosHTML = `
+                    <div class="size-selector">
+                        ${produto.tamanhos.map(t => `<span class="size-option">${t}</span>`).join('')}
+                    </div>
+                `;
+            }
+            
+            card.innerHTML = `
+                <div class="product-image-container">
+                    ${badges}
+                    <img src="${produto.imagem}" alt="${produto.nome}" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="${produto.imagemSecundaria || produto.imagem}" alt="${produto.nome}" class="product-image-secondary">
+                </div>
+                <div class="product-info">
+                    <h3>${produto.nome}</h3>
+                    <p>${produto.descricao}</p>
+                    ${precoHTML}
+                    ${tamanhosHTML}
+                    <button class="btn btn-primary" style="width: 100%;">Comprar Agora</button>
+                </div>
+            `;
+            
+            // Configurar seleção de tamanho
+            card.querySelectorAll('.size-option').forEach(tamanho => {
+                tamanho.addEventListener('click', function() {
+                    card.querySelectorAll('.size-option').forEach(t => t.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Configurar botão de compra
+            card.querySelector('button').addEventListener('click', () => {
+                const tamanhoSelecionado = card.querySelector('.size-option.selected');
+                if (!tamanhoSelecionado && produto.tamanhos.length > 0) {
+                    alert('Por favor, selecione um tamanho antes de comprar.');
+                    return;
+                }
+                
+                const numero = '258841234567';
+                let mensagem = `Olá! Gostaria de comprar o produto: ${produto.nome}`;
+                
+                if (tamanhoSelecionado) {
+                    mensagem += ` (Tamanho: ${tamanhoSelecionado.textContent})`;
+                }
+                
+                mensagem += ` - Preço: ${produto.preco.toFixed(2)} MT`;
+                
+                window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, '_blank');
+            });
+            
+            return card;
+        }
+
+        // ========== INICIALIZAÇÃO ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            configurarNavegacao();
+            
+            if (!localStorage.getItem('produtos')) {
+                salvarProdutos();
+            }
+        });
+    </script>
+</body>
+</html>
